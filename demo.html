@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width,height=device-height,maximum-scale=1.0,user-scalable=no">
+    <title>HTML移动端选择器</title>
+    <link rel="stylesheet" href="css/mselect.css"/>
+    <script src="jquery-3.2.1.min.js"></script>
+    <script src="mselect.js"></script>
+</head>
+<body>
+<div id="idCard">打开DEMO</div>
+<div>选中项：<span class="onSelect"></span></div>
+<script>
+    $("#idCard").mselect({
+        keys:{
+            id: 'id',
+            name: 'desc'
+        },
+        data: [
+            {id: '1', desc: '身份证'},
+            {id: '2', desc: '户口簿'},
+            {id: '3', desc: '军人证'},
+            {id: '4', desc: '武警证'},
+            {id: '5', desc: '回乡证'},
+            {id: '6', desc: '国外居留证'},
+            {id: '7', desc: '境外护照'},
+            {id: '8', desc: '港澳台通行证'}
+        ],
+        value:[0],
+        onSelect: function (obj) {
+            $(".onSelect").html("Text："+obj.selectText+" Value："+obj.selectCode)
+            console.log(obj.selectText);
+            console.log(obj.selectCode);
+        }
+    });
+</script>
+</body>
+</html>
